@@ -24,13 +24,15 @@ void Particle::setup()
     drag = ofRandom(0.97, 0.99);
 }
 
-void Particle::update()
+void Particle::update(float speed, float noise)
 {
     acc.x = ofSignedNoise(uniqueVal.x, ofGetElapsedTimeMillis());
     acc.y = ofSignedNoise(uniqueVal.y, ofGetElapsedTimeMillis());
+    acc *= noise;
 
     vel *= drag;
     vel += acc;
+    vel *= speed;
     pos += vel;
     if (pos.x + size < 0)
     {
@@ -54,5 +56,6 @@ void Particle::update()
 
 void Particle::draw(float dotSize)
 {
+    ofSetColor(255, 255, 255, 255);
     ofDrawCircle(pos.x, pos.y, size * dotSize);
 }

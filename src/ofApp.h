@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "particle.h"
+#include "ofxGui.h"
 
 class ofApp : public ofBaseApp{
 
@@ -23,5 +24,10 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		vector<Particle>p;
+
+		ofxPanel gui;
+		ofxFloatSlider overallSpeed;
+		ofxFloatSlider noiseAmount;
+		ofxFloatSlider trail;
 		
 };

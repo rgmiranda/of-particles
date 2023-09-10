@@ -2,27 +2,38 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    
+    gui.setup();
+    gui.add(overallSpeed.setup("Speed", 1, 0.1, 1.2));
+    gui.add(noiseAmount.setup("Noise", 1, 0.1, 1.2));
+    gui.add(trail.setup("Noise", 6, 1, 20));
+
     p.assign(100, Particle());
     for (int i = 0; i < p.size(); i++)
     {
         p[i].setup();
     }
+
+    ofSetBackgroundAuto(false);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     for (int i = 0; i < p.size(); i++)
     {
-        p[i].update();
+        p[i].update(overallSpeed, noiseAmount);
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    ofSetColor(0, 0, 0, trail);
+    ofDrawRectangle(0, 0, ofGetWidth(), ofGetWidth());
     for (int i = 0; i < p.size(); i++)
     {
         p[i].draw(1);
     }
+    gui.draw();
 }
 
 //--------------------------------------------------------------

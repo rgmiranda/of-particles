@@ -6,7 +6,7 @@ class Particle
         Particle();
 
         void setup();
-        void update();
+        void update(float speed, float noise);
         void draw(float dotSize);
 
         ofVec2f pos;

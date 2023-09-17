@@ -1,4 +1,6 @@
 #include "ofMain.h"
+#include "colors.h"
+#include <iostream>
 
 class flowParticle
 {
@@ -10,6 +12,7 @@ class flowParticle
         uint64_t elapsedTime;
         uint64_t lastTime;
         bool active;
+        ofColor color;
 
     public:
         flowParticle();

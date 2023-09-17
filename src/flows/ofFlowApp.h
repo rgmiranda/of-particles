@@ -6,6 +6,10 @@
 
 class ofFlowApp : public ofBaseApp{
 
+	private:
+		const int numParticles = 4096;
+		ofImage img;
+
 	public:
 		void setup();
 		void update();

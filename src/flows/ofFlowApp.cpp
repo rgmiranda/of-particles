@@ -5,10 +5,10 @@ void ofFlowApp::setup(){
     
     gui.setup();
     gui.add(speed.setup("Speed", 3, 1, 15));
-    gui.add(frequency.setup("Frequency", 0.005, 0.001, 0.1));
+    gui.add(frequency.setup("Frequency", 0.0025, 0.001, 0.01));
     gui.add(trail.setup("Trail", 6, 1, 20));
 
-    p.assign(4096, flowParticle());
+    p.assign(numParticles, flowParticle());
     for (int i = 0; i < p.size(); i++)
     {
         p[i].setup();
@@ -38,7 +38,13 @@ void ofFlowApp::draw(){
 
 //--------------------------------------------------------------
 void ofFlowApp::keyPressed(int key){
-
+    int w = ofGetWidth();
+    int h = ofGetHeight();
+    if(key == 's'){
+        cout << "Saving...";
+        img.grabScreen(0, 0, w, h);
+        img.save("flows-4096.jpg");
+    }
 }
 
 //--------------------------------------------------------------

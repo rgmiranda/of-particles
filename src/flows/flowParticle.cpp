@@ -10,11 +10,14 @@ void flowParticle::setup()
     pos.x = ofRandomWidth();
     pos.y = ofRandomHeight();
 
-    size = 2;
+
+    size = ofRandom(8) + 2;
     lifeSpan = floor(ofRandom(1, 5) * 1000);
     elapsedTime = 0;
     lastTime = ofGetElapsedTimeMillis();
     active = true;
+
+    color = Colors::getRandomColor();
 }
 
 void flowParticle::update(float speed, float frequency)
@@ -39,7 +42,7 @@ void flowParticle::draw(float dotSize)
     if (!active) {
         return;
     }
-    ofSetColor(255, 255, 255, 255);
+    ofSetColor(color);
     ofSetLineWidth(size);
     ofDrawLine(pos.x, pos.y, prevPos.x, prevPos.y);
 }

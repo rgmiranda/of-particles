@@ -1,5 +1,5 @@
 #include "ofMain.h"
-#include "flows/ofFlowApp.h"
+#include "gravity/ofGravityApp.h"
 
 //========================================================================
 int main( ){
@@ -11,7 +11,7 @@ int main( ){
 
 	auto window = ofCreateWindow(settings);
 
-	ofRunApp(window, make_shared<ofFlowApp>());
+	ofRunApp(window, make_shared<ofGravityApp>());
 	ofRunMainLoop();
 
 }
